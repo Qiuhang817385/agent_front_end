@@ -1,0 +1,188 @@
+.react-agent-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.react-agent-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.input-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.input-section .ant-input {
+  flex: 1;
+}
+
+.output-section {
+  margin-top: 24px;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+}
+
+.typing-container {
+  min-height: 120px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #e8e8e8;
+  margin-top: 12px;
+}
+
+.typing-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  min-height: 24px;
+  position: relative;
+}
+
+/* 打字机光标效果 */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #1890ff;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 打字机效果动画 */
+.typing-text::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: transparent;
+}
+
+.typing-text.typing::after {
+  background-color: #1890ff;
+  animation: typingCursor 0.5s infinite;
+}
+
+@keyframes typingCursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.error-section {
+  padding: 12px;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.info-section {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* 按钮样式优化 */
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.ant-btn-danger {
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.ant-btn-danger:hover {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .react-agent-container {
+    padding: 12px;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  .typing-container {
+    min-height: 100px;
+    padding: 12px;
+  }
+
+  .typing-text {
+    font-size: 14px;
+  }
+}
+
+/* 加载状态指示器 */
+.loading-indicator {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.loading-indicator::after {
+  content: '...';
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: '.';
+  }
+  40% {
+    content: '..';
+  }
+  60%,
+  100% {
+    content: '...';
+  }
+}
+
+/* 缓冲区状态指示 */
+.buffer-status {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-left: 8px;
+  font-family: monospace;
+}
